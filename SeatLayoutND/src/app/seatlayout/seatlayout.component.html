@@ -1,17 +1,10 @@
-<!-- <app-showbuses></app-showbuses> -->
-<router-outlet></router-outlet>
-<!-- The content below is only a placeholder and can be replaced.
- <div>
-  <app-showbuses></app-showbuses>
-</div> -->
-
-<!-- <div style="text-align:center">
+<div style="text-align:center">
   <h1>
-    Seat Chart Generator
+    Select your seats
   </h1>
 </div>
-<div class="col-lg-12 seat-container" > -->
-  <!-- <div  *ngFor="let seatrow of seatmap " >
+<div class="col-lg-12 seat-container" >
+  <div  *ngFor="let seatrow of seatmap " >
       <div class="col-12 pricing-label" *ngIf="seatChartConfig?.showRowWisePricing && seatrow.seatPricingInformation != ''">{{seatrow.seatPricingInformation}}</div>
       <div class="seatrow container">
           <div *ngIf="seatChartConfig?.showRowsLabel">
@@ -28,10 +21,10 @@
               *ngIf="seatobj.status == 'unavailable' && seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
           </div>
       </div>
-  </div> -->
-<!-- </div> -->
+  </div>
+</div>
 <!-- *ngIf="cart?.selectedSeats?.length > 0" -->
-<!-- <div  class="container">
+<div  class="container">
   <div class="col-lg-12 summary-bar">
       <div class="col-lg-4" >
               <div>
@@ -45,12 +38,6 @@
       </div>
   </div>
   <div class="col-lg-12 book-area">
-    <button [disabled]="cart?.selectedSeats?.length == 0" type="button" (click)="processBooking()" class="btn btn-primary" mdbWavesEffect>Book Now</button>
+    <button [disabled]="cart?.selectedSeats?.length == 0" type="button" [routerLink]="'/guestuserdetail'" (click)="processBooking()" class="btn btn-primary" mdbWavesEffect >Book Now</button>
   </div>
-  <div> 
-    <button (click)=gotoNext()>Go to next page</button>
-  </div>
-</div> --> 
-
-<!-- <router-outlet></router-outlet> -->
-<!-- <a routerLink="afterbooknow"></a> -->
+</div>
