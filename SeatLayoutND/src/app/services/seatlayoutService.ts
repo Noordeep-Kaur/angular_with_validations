@@ -7,6 +7,7 @@ import {Injectable} from "@angular/core";
   })
 export class SeatLayoutService
 {
+    gid;
     count:number;
     fare:number;
 }

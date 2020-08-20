@@ -13,6 +13,7 @@ export class BusService{
     fromTime:string;
     toTime:string;
     fromDate:string;
+    busId:number;
     
     constructor(private http:HttpClient){
         //var droplist=this.http.get("http://localhost:53534/api/JourneyRoutes");

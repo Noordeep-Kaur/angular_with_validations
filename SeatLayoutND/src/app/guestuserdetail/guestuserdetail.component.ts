@@ -4,6 +4,7 @@ import { UserService } from '../services/UserService';
 import { BusService } from '../services/busService';
 import { SeatLayoutService } from '../services/seatlayoutService';
 import { Router, RouterModule } from '@angular/router';
+import { FormControl,FormGroup,Validators,FormControlName,FormBuilder} from '@angular/forms';
 
 
 @Component({
@@ -35,8 +36,8 @@ this.a=data;
 
 this.guestUserService.fetchemail(this.model).subscribe((res)=>{
   console.log(res);
-  this.guestUserService.gid=res;
-  console.log(this.guestUserService.gid);
+  this.seatlay.gid=res;
+  console.log(this.seatlay.gid);
 })
 //if(this.a!="false")
 //this.router.navigate(['/payment'])
@@ -55,6 +56,7 @@ this.guestUserService.fetchemail(this.model).subscribe((res)=>{
   //   addGuestUser();
   //   fetchemail();
   //  }
+  
   
 
   reset(){

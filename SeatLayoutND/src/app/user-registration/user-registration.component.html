@@ -1,24 +1,46 @@
 <div>
   <div>               
       <label>First Name</label>
-          <input type="text" [(ngModel)]="user.FirstName" required/><br/>         
+          <input type="text" [(ngModel)]="user.FirstName" #fname=ngModel required/>
+          <p class="alert alert-danger" *ngIf="fname.touched && fname.invalid">
+            <span class="alert alert-danger" *ngIf="fname.errors.required">FirstName cannot be empty</span>
+        </p><br/>         
      <label>Last Name</label>
-          <input type="text" [(ngModel)]="user.LastName" required/><br/>            
+          <input type="text" [(ngModel)]="user.LastName" #lname=ngModel required/>
+          <p class="alert alert-danger" *ngIf="lname.touched && lname.invalid">
+            <span class="alert alert-danger" *ngIf="lname.errors.required">LastName cannot be empty</span>
+        </p><br/>            
       <label>Gender </label>   <br/> 
           <input type="radio" id="rdbMale" value="male" [(ngModel)]="user.Gender" checked required />Male
           <input type="radio" id="rdbFemale" value="female"[(ngModel)]="user.Gender" />Female<br/>
       <label>Email ID</label>
-          <input type="text" [(ngModel)]="user.EmailId" placeholder="abc@xyz.com" required/><br/> 
+          <input type="email" [(ngModel)]="user.EmailId" #email=ngModel placeholder="abc@xyz.com" required/>
+          <p class="alert alert-danger" *ngIf="email.touched && email.invalid">
+            <span class="alert alert-danger" *ngIf="email.errors.required">Email cannot be empty</span>
+        </p><br/> 
       <label>Password</label>
-          <input type="password" [(ngModel)]="user.Password" required/><br/>     
+          <input type="password" [(ngModel)]="user.Password" #pass=ngModel required/>
+          <p class="alert alert-danger" *ngIf="pass.touched && pass.invalid">
+            <span class="alert alert-danger" *ngIf="pass.errors.required">Please set your password</span>
+        </p><br/>     
       <label>Confirm Password</label>        
-          <input type="password"/><br/>
+          <input type="password" required/>
+          <br/>
       <label>Date of Birth</label><br/>
-          <input type="date" [(ngModel)]="user.DOB" max="2020-08-20" required/><br/>    
+          <input type="date" [(ngModel)]="user.DOB" max="2020-08-20" #dob required/>
+          <p class="alert alert-danger" *ngIf="dob.touched && dob.invalid">
+            <span class="alert alert-danger" *ngIf="dob.errors.required">Please enter your date of  birth</span>
+        </p><br/>    
       <label>Phone no.</label>
-          <input type="text" [(ngModel)]="user.PhoneNumber" required/>   <br/>
+          <input type="text" [(ngModel)]="user.PhoneNumber" #pnumber required/>  
+          <p class="alert alert-danger" *ngIf="pnumber.touched && pnumber.invalid">
+            <span class="alert alert-danger" *ngIf="pnumber.errors.required">Phone no. cannot be empty</span>
+        </p> <br/>
       <label>Address</label>
-          <input type="text" [(ngModel)]="user.Address" required/>   <br/>  
+          <input type="text" [(ngModel)]="user.Address" #address required/>
+          <p class="alert alert-danger" *ngIf="address.touched && address.invalid">
+            <span class="alert alert-danger" *ngIf="address.errors.required">Address cannot be empty</span>
+        </p>   <br/>  
       <label>State</label>
           <!-- <input type="text" [(ngModel)]="user.State"/>   <br/>   -->
           <select name="state" [(ngModel)]="user.State" required>

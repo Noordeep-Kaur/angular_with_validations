@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {LoginService} from './services/loginService';
 import { PrintTicketService} from './services/printticketService';
 
+
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TooltipModule } from 'ngx-bootstrap';
@@ -32,6 +33,7 @@ import { CancelledBookingsComponent } from './cancelled-bookings/cancelled-booki
 import { WalletService } from './services/walletService';
 import { PreviousService } from './services/previousBooking';
 import { CancelService } from './services/cancelService';
+import { PrintticketComponent } from './printticket/printticket.component';
 
 
 @NgModule({
@@ -46,11 +48,11 @@ import { CancelService } from './services/cancelService';
     ForgotpasswordComponent,
     UserLoginComponent,
     UserRegistrationComponent,
-  //  PrintticketComponent,
     TicketgenerationComponent,
     BookingsComponent,
     DashBoardComponent,
-    CancelledBookingsComponent
+    CancelledBookingsComponent,
+    PrintticketComponent
   ],
   imports: [
     BrowserModule,

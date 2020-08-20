@@ -12,6 +12,7 @@ export class UserService{
     guestUsers:GuestUser[];
     gid;
     seatCount;
+    fare;
     constructor(private http:HttpClient ){
         this.guestUsers=[];
     }
@@ -28,5 +29,11 @@ export class UserService{
     }
     public getTrip(id){
         return this.http.get("http://localhost:53534/api/FetchGID/"+id);
+    }
+
+    public getBusID(id)
+    {
+        
+        return this.http.get("http://localhost:53534/api/GetBusId/"+id.toString());
     }
 }

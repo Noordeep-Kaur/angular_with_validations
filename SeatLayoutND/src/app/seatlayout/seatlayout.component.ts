@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BusService } from '../services/busService';
 import { UserService } from '../services/UserService';
+import { SeatLayoutService } from '../services/seatlayoutService';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class SeatlayoutComponent implements OnInit {
   private seatmap = [];
   counter:number;
   fare:number;
-  constructor(private routes:Router,private busServ:BusService,private userSer:UserService){
+  constructor(private routes:Router,private busServ:BusService,private userSer:UserService,private seatSer:SeatLayoutService){
     console.log(this.busServ.trip,this.busServ.fromLocation,this.busServ.toLocation,this.busServ.fromTime,
       this.busServ.toTime,this.busServ.fromDate);
   }
@@ -205,6 +206,7 @@ export class SeatlayoutComponent implements OnInit {
     console.log(this.counter);
     this.userSer.seatCount=this.counter;
       this.fare=this.cart.totalamount;
+      this.userSer.fare=this.fare;
 
     }
     else if( seatObject.status = "booked" )
@@ -260,6 +262,8 @@ export class SeatlayoutComponent implements OnInit {
    // console.log("Seats booked")
     //
     this.blockSeats(this.cart.seatsToBlock.toString());
+    this.seatSer.count=this.counter;
+    this.seatSer.fare=this.fare;
     console.log("Count is:",this.counter);
     console.log("Fare:",this.fare);
   }

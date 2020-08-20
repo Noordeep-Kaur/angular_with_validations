@@ -15,7 +15,7 @@
     <div class="row">    
       <div >  </div>  
    <div class="fromlocation">   
-     <label for="myListOptions">My List Options</label>
+     <label for="FromLocation">From Location</label>
       <select (change)="populate($event.target.value)"  name="FromLocation" [(ngModel)]="model.TripID"  >
        <option value="undefined" selected disabled>--Select FromLocation--</option>
        <option *ngFor="let test of type$|async" [value]="test.TripID" 
@@ -37,7 +37,7 @@
       placeholder="To Location"  
        
      /> -->  
-      <label for="myListOption">My List Options</label>
+      <label for="ToLocation">To Location</label>
      <select   >
        <option value="undefined" selected disabled>--Select ToLocation--</option>
        <option *ngFor="let locations of tolocation|async" [value]="locations.TripID" 
@@ -81,7 +81,6 @@
       <th>ToLocation</th>
       <th>FromTime</th>
       <th>ToTime</th>
-      <th>Fare</th>
       <th>Seats</th>
     </tr>
     <tr *ngFor="let emp of emp">  
@@ -89,11 +88,10 @@
       <th scope="row">{{emp.FromLocation}}</th>
       <th scope="row">{{emp.ToLocation}}</th>
       <th scope="row">{{emp.FromTime}}</th>
-      <th scope="row">{{emp.ToTime}}</th>  
-      <td>{{emp.Fare}}</td>  
+      <th scope="row">{{emp.ToTime}}</th> 
       <td>{{emp.NumberOfSeats}}</td>
       <td><button class="btn btn-dark" (click)="store(emp.TripID,emp.FromLocation,emp.ToLocation,
-        emp.FromTime,emp.ToTime,emp.Date)" [routerLink]="'/seatlayout'">ViewSeats</button></td>
+        emp.FromTime,emp.ToTime,emp.FromDate)" [routerLink]="'/seatlayout'">ViewSeats</button></td>
       
       <!-- <td>{{emp.JoiningDate | date:'yyyy-MM-dd'}}</td>   -->
     </tr>  

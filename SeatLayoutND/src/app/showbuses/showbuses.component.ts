@@ -42,6 +42,7 @@ export class ShowbusesComponent implements OnInit {
   fetchBuses(){
     this.busService.getBuses().subscribe((data)=>{
       this.emp=data;
+      
     //  this.busService.trip=
       console.log(this.emp);
     })

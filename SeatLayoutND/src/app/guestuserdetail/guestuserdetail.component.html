@@ -1,16 +1,153 @@
+
+
 <h3>Contact Details</h3>
 <div>
-    <div>         
+    <div class="alert alert-success">         
         <label>First Name</label>
-            <input type="text" [(ngModel)]="model.FirstName"/><br/>          
+            <input type="text" name="fname" id="fname" [(ngModel)]="model.FirstName" required #firstname=ngModel/>
+            <p class="alert alert-danger" *ngIf="firstname.touched && firstname.invalid">
+                <span class="alert alert-danger" *ngIf="firstname.errors.required">FirstName cannot be empty</span>
+            </p>   <br>    
        <label>Last Name</label>
-            <input type="text" [(ngModel)]="model.Lastname"/><br/>   
+            <input type="text" name="lname" id="lname" [(ngModel)]="model.Lastname" required #lastname=ngModel/>
+            <p class="alert alert-danger" *ngIf="lastname.touched && lastname.invalid">
+                <span class="alert alert-danger" *ngIf="lastname.errors.required">LastName cannot be empty</span>
+            </p> <br/>   
         <label>Email ID</label>
-            <input type="text" [(ngModel)]="model.EmailId"/><br/>
+            <input type="email" name="emailid" id="emailid" [(ngModel)]="model.EmailId" required #email=ngModel/>
+            <p class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <span class="alert alert-danger" *ngIf="email.errors.required">Email cannot be empty</span>
+            </p><br/>
         <label>Phone no.</label>
                   <input type="text" [(ngModel)]="model.PhoneNumber"/>   <br/> 
                   <span *ngIf="a=='false'">this email id already exists</span>   
-        <button  (click)="addGuestUser()" class="btn btn-primary" >Submit</button> 
+        <button  (click)="addGuestUser()" [routerLink]="'/payment'"class="btn btn-primary" >Submit</button> 
         <button (click)="reset()" class="btn btn-info">Reset</button>
     </div>
 </div>
+
+<!-- <div class="container">
+    <div [hidden]="submitted">
+      <h1>Contact details</h1>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group">
+          <label for="FirstName">FirstName</label>
+          <input type="text" class="form-control" id="fname"
+                 required
+                 [(ngModel)]="model.FirstName" name="fname"
+                 #name="ngModel">
+          <div [hidden]="fname.valid || fname.pristine"
+               class="alert alert-danger">
+            FiratName is required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="Lastname">LastName</label>
+          <input type="text" class="form-control" id="lname"
+                 [(ngModel)]="model.Lastname" name="lname">
+          <div [hidden]="lname.valid || lname.pristine"
+               class="alert alert-danger">
+            LastName is required
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Email">EmailId</label>
+            <input type="email" class="form-control" id="email"
+                   [(ngModel)]="model.EmailId" name="email">
+             <div [hidden]="email.valid || email.pristine"
+                   class="alert alert-danger">
+                Email is required
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="PhoneNumber">PhoneNumber</label>
+            <input type="number" class="form-control" id="pnumber"
+                   [(ngModel)]="model.PhoneNumber" name="pnumber">
+             <div [hidden]="pnumber.valid || pnumber.pristine"
+                   class="alert alert-danger">
+                PhoneNumber is required
+              </div>
+          </div>
+
+
+  
+         <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control" id="power"
+                  required
+                  [(ngModel)]="model.power" name="power"
+                  #power="ngModel">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+            Power is required
+          </div>
+        </div> -->
+  
+        <!-- <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="newHero(); userForm.reset()">New Hero</button> -->
+      <!-- </form>
+    </div>
+  
+    <div [hidden]="!submitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-xs-3">FirstName</div>
+        <div class="col-xs-9">{{ model.FirstName }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">LastName</div>
+        <div class="col-xs-9">{{ model.Lastname }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">EmailId</div>
+        <div class="col-xs-9">{{ model.EmailId }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">PhoneNumber</div>
+        <div class="col-xs-9">{{ model.PhoneNumber }}</div>
+      </div>
+      <br>
+       <button class="btn btn-primary" (click)="submitted=false">Edit</button> -->
+    <!-- </div>
+  </div>  -->
+
+  <!-- <div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3>Angular 7 Template-Driven Form Validation</h3>
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" name="FirstName" [(ngModel)]="m.FirstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+                        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                            <div *ngIf="firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+                        <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                            <div *ngIf="lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                            <div *ngIf="email.errors.required">Email is required</div>
+                            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                            <div *ngIf="password.errors.required">Password is required</div>
+                            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                    </div> -->

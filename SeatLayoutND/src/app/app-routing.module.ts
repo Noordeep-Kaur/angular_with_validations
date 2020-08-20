@@ -15,6 +15,7 @@ import { CancelledBookingsComponent } from './cancelled-bookings/cancelled-booki
 import { ProfileComponent } from './profile/profile.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import {PrintticketComponent} from './printticket/printticket.component';
 //import {ShowbusesComponent} from './showbuses/showbuses.component';
 var myRoutes:Routes=[
     {path:'showbuses',component:ShowbusesComponent},
@@ -34,7 +35,8 @@ var myRoutes:Routes=[
     
     {path:'profile',component:ProfileComponent},
     {path:'change-password',component:ChangePasswordComponent},
-    {path:'wallet',component:WalletComponent}
+    {path:'wallet',component:WalletComponent},
+    {path:'printticket',component:PrintticketComponent}
   ]
 
 @NgModule({
